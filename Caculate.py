@@ -23,10 +23,25 @@ class Mavrg:
 
     def mob_avg(self):
 
-        avrgs = np.array([])
+        avrgs = np.empty((0))
         i = 0
-        
-        while self.list_in[0, i:self.range]:
-            np.append(avrgs, np.average(self.list_in[0, i:self.range]))
+
+        while (len(self.list_in) - i) >= self.range :
+            avrgs = np.append(avrgs, [np.average(self.list_in[i:self.range + i])], axis=0)
             i += 1
         return avrgs
+    
+
+class Derive:
+    """"Caculate the derivitive"""
+    def __init__(self, time, vals):
+        self.time = time
+        self.vals = vals
+
+    def div(self):
+        shift = abs(len(self.time) - len(self.vals))
+        divs = np.empty((0))
+        for i, value in enumerate(self.vals[1:]):
+             divs = np.append(divs, [(value - self.vals[i-1])/(self.time[i+shift] - self.time[i+shift -1])], axis=0)
+        return divs
+    
