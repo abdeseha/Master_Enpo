@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from caculate import *
+from calculate import *
 from ploting import *
 
 counter = 0
