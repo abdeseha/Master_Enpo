@@ -10,12 +10,8 @@ class plot:
     def set_anime(self):
         
         plt.cla()
-        for graph in self.graphes:
-            plt.plot(self.x, graph, label = str(graph))
+        for graph_name, graph in self.graphes.items():
+            plt.plot(self.x, graph, label=graph_name)
     
         plt.legend(loc='upper left')
-        plt.tight_layout()
-
-    def animate (self):
-        ani = FuncAnimation(plt.gcf(), plot.animate, interval=1000)
-        plt.show()
+        plt.pause(3)
