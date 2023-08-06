@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 from calculate import *
 from ploting import *
+import time 
 
 counter = 0
 row = 10000
@@ -12,21 +13,28 @@ Operations = {}
 
 rd = input('Read new file (Y/N): ').upper()
 if  rd == 'Y' or rd == 'YES':
-    data_xl = pd.read_excel(input('Data file: '))
-    data_xl.to_csv(r"./data/data.csv", index=False)
+    data = pd.read_excel(input('Data file: '))
+    data.to_csv(r"./data/data.csv", index=False)
 
 while True:
     data = pd.read_csv("./data/data.csv", nrows=row, skiprows=skiprow*counter)
-    if len(data) < row:
+    if len(data) < 2:
+        time.sleep(10)
+        continue
+    elif len(data) < row:
         counter -= 1
         data = pd.read_csv("./data/data.csv", nrows=row, skiprows=skiprow*counter)
     
-    P = Calculate.pow(data.iloc[:,1],data.iloc[:,2],data.iloc[:,3])
+    try:
+        P = Calculate.pow(data.iloc[:,1],data.iloc[:,2],data.iloc[:,3],data.iloc[:,4])
+    except IndexError:
+        P = Calculate.pow(data.iloc[:,1],data.iloc[:,2],data.iloc[:,3])
+    
     P_mavg = Calculate.mob_avg(P,num_vals=20,times=5)
     P_mavg_div = Calculate.div(data.iloc[:,0], P_mavg)
-    graph = plot(data.iloc[:,0], Preassure = P)
-
     Characterize.characterize(time=data.iloc[:,0], org_values=P_mavg, dives=P_mavg_div)
+    
+    graph = plot(data.iloc[:,0], Preassure = P)
     graph.plt_graph()
     graph.shade(Characterize.operations)
     
