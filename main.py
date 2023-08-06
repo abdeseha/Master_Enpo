@@ -31,7 +31,7 @@ while True:
         print(F'{key} :')
         for key_1, value_1 in value.items():
             print(F'----> {key_1} : {value_1}')
-    
+    print('-----------------------------------')
     graph.plt_graph()
     graph.shade(Characterize.operations)
     

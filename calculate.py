@@ -39,19 +39,20 @@ class Characterize:
     in_opt = False
     
     def add_operation():
+        in_opts = False
         if len(Characterize.operations) == 0:
             Characterize.operations[F'operation_{Characterize.operation_num}'] = Characterize.operation
         else:
             for opt in Characterize.operations.values():
                 if abs(Characterize.operation['stab_value'] - opt['stab_value']) < Characterize.operation['stab_value']*0.03:
+                    in_opts = True
                     opt['nb_of_use'] += 1
                     opt['start_time'] = np.append(opt['start_time'], Characterize.operation['start_time'])
                     opt['end_time'] = np.append(opt['end_time'], Characterize.operation['end_time'])
                     opt['max'] = np.append(opt['max'], Characterize.operation['max'])
-                
-                else:
-                    Characterize.operations[F'operation_{Characterize.operation_num}'] = Characterize.operation
-                    Characterize.operation_num += 1
+            if in_opts == False:
+                Characterize.operation_num += 1
+                Characterize.operations[F'operation_{Characterize.operation_num}'] = Characterize.operation
 
     def characterize(time=None, org_values=None, meaned_values=None, dives=None):
         
@@ -78,7 +79,7 @@ class Characterize:
                     Characterize.operation['stab_value'] = stab_value[0]
 
                 elif abs(dive) < 5 and meaned_values[shift_meaned+i] < 100 and Characterize.in_opt == True:
-                    Characterize.operation['end_time'] = time[shift_time+i]
+                    Characterize.operation['end_time'][0] = time[shift_time+i]
                     Characterize.add_operation()
                     Characterize.operation =  {'nb_of_use':1, 'stab_value':0, 'start_time':np.array([0]), 'end_time':np.array([0]), 'max':np.array([0])}
                     Characterize.in_opt = False                    
