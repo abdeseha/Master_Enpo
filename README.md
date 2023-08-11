@@ -35,3 +35,10 @@ or read the exsisting data/data.csv file
 it reads a window of 10000 value (1000s) and moves 100s at a time if the data is less it reads it as it is.
 then calculate the power, the mobile average, the dirivetives then characterize it, and finally plots the data withe a highlight 
 of each operation and cycle.
+
+This code is in python so first we insall python from 'https://www.python.org/downloads/' the used version is 3.11.4.
+Next to install dependencies we first install pip:
+- Fist check pip version by: pip --version
+To install if it doesn exist:
+- For MacOs and Linux: python3 -m ensurepip --upgrade
+- For Windows: python -m ensurepip --upgrade
