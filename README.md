@@ -42,3 +42,5 @@ Next to install dependencies we first install pip:
 To install if it doesn exist:
 - For MacOs and Linux: python3 -m ensurepip --upgrade
 - For Windows: python -m ensurepip --upgrade
+
+finally to install all dependencies, run: pip install -r Requirements.txt
