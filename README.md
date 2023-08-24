@@ -30,7 +30,7 @@ an operation or a new operation )
 - the max is a list holds all cycles of the operation max values.
 
 the main.py is the one file to run, that hold the GUI and calls the other functions depends on the user.
-  it has 4 mager functionalities Analyse (analyse the data and outputs the operations), Simulate (Simulate the mechine 'To Do'), Train ('To train the modal based on the result of Analyse'), Plane (wich give a scheduel based on the trained model)
+  it has 4 mager functionalities Analyse (analyse the data and outputs the operations), Simulate (Simulate the mechine 'To Do'), Train ('To train the modal based on the result of Analyse'), Plan (wich give a scheduel based on the trained model)
 
   The 'Settings' has for the moments only the settings for the Analyse funcion.
 

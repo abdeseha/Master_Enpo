@@ -64,7 +64,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -174,14 +174,14 @@
         <string>Train</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="plane">
+      <widget class="QWidget" name="plan">
        <attribute name="icon">
         <iconset>
          <selectedon>icons/plan.png</selectedon>
         </iconset>
        </attribute>
        <attribute name="title">
-        <string>Plane</string>
+        <string>Plan</string>
        </attribute>
       </widget>
       <widget class="QWidget" name="settings">
