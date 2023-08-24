@@ -29,17 +29,19 @@ an operation or a new operation )
 - the end_time a list holds all the end time of all the cycles of an operation in order.
 - the max is a list holds all cycles of the operation max values.
 
-the ploting.py is a file responsible of the ploting functions
-the main.py file is the one to run takes the data in xlsx extension and convert it to csv we want to "Read ne file (Y/N): ",
-or read the exsisting data/data.csv file
-it reads a window of 10000 value (1000s) and moves 100s at a time if the data is less it reads it as it is.
-then calculate the power, the mobile average, the dirivetives then characterize it, and finally plots the data withe a highlight 
-of each operation and cycle.
+the main.py is the one file to run, that hold the GUI and calls the other functions depends on the user.
+  it has 4 mager functionalities Analyse (analyse the data and outputs the operations), Simulate (Simulate the mechine 'To Do'), Train ('To train the modal based on the result of Analyse'), Plane (wich give a scheduel based on the trained model)
+
+  The 'Settings' has for the moments only the settings for the Analyse funcion.
+
+the analyse file holds the functionality of the Analyse tab in the user interface.
+
+you can find pictures form the app in the pics folder, and examples of the output data form the analyse function in the data folder.
 
 This code is in python so first we insall python from 'https://www.python.org/downloads/' the used version is 3.11.4.
 Next to install dependencies we first install pip:
 - Fist check pip version by: pip --version
-To install if it doesn exist:
+To install if it doesn't exist:
 - For MacOs and Linux: python3 -m ensurepip --upgrade
 - For Windows: python -m ensurepip --upgrade
 
