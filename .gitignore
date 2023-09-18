@@ -1,2 +1,4 @@
 .venv
 try .py
+.tmp.driveupload
+.tmp.drivedownload
